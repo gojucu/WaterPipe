@@ -8,14 +8,15 @@ public class PathFinder : MonoBehaviour
 {
     [SerializeField] Waypoint startWaypoint, endWaypoint;
 
-    Dictionary<Vector3, Waypoint> grid = new Dictionary<Vector3, Waypoint>();
+    public Dictionary<Vector3, Waypoint> grid = new Dictionary<Vector3, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true;
+    public bool isEndReached = false;
     Waypoint searchCenter;
     Waypoint backSearch;
-    List<Waypoint> path = new List<Waypoint>();
-    List<Vector3Int> directions = new List<Vector3Int>();
-    List<Vector3Int> directionsBack = new List<Vector3Int>();
+    public List<Waypoint> path = new List<Waypoint>();
+    public List<Vector3Int> directions = new List<Vector3Int>();
+    public List<Vector3Int> directionsBack = new List<Vector3Int>();
 
     //Vector3Int[] directions =
     //{
@@ -24,11 +25,11 @@ public class PathFinder : MonoBehaviour
     //    Vector3Int.down,
     //    Vector3Int.left
     //};
-    void Start()
-    {
-        GetPath();
+    //void Start()
+    //{
+    //    GetPath();
 
-    }
+    //}
     public List<Waypoint> GetPath()
     {
 
@@ -225,6 +226,7 @@ public class PathFinder : MonoBehaviour
         if (searchCenter == endWaypoint)
         {
             Debug.Log("Water reached its goal");
+            isEndReached = true;
             isRunning = false;
         }
         //if ("hasWater" == "hasWater")

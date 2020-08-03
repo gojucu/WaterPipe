@@ -94,10 +94,11 @@ public class PipeRotater : MonoBehaviour
 
     void Update()
     {
-        if (hasWater)
-        {
-            Debug.Log(gameObject.name + "has water");
-        }
+        //Buna artık gerek yok heralde direk yoldan kontrol ediliyor
+        //if (hasWater)
+        //{
+        //    Debug.Log(gameObject.name + "has water");
+        //}
 
         currentRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotateSpeed * Time.deltaTime);
 
