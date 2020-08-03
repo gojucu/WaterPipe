@@ -82,7 +82,7 @@ public class PathFinder : MonoBehaviour
     }
     private void ExploreNeighbour()
     {
-        if(searchCenter != startWaypoint) {
+        if(searchCenter != startWaypoint&&searchCenter!=endWaypoint) {
             List<Vector3Int> directions = FindPipeDirections();
         }
         else
@@ -157,28 +157,40 @@ public class PathFinder : MonoBehaviour
 
     public List<Vector3Int> FindPipeDirectionsBackwards()
     {
-        var pipeDir = backSearch.transform.Find("Pipe");
-        PipeRotater d = pipeDir.GetComponent<PipeRotater>();
-        var gate = d.pipeGates;
+
 
         directionsBack.Clear();
 
-        if (gate[0] == '1')
+        if (backSearch == endWaypoint)
         {
             directionsBack.Add(Vector3Int.up);
-        }
-        if (gate[1] == '1')
-        {
             directionsBack.Add(Vector3Int.right);
-        }
-        if (gate[2] == '1')
-        {
             directionsBack.Add(Vector3Int.down);
-        }
-        if (gate[3] == '1')
-        {
             directionsBack.Add(Vector3Int.left);
         }
+        else
+        {
+            var pipeDir = backSearch.transform.Find("Pipe");
+            PipeRotater d = pipeDir.GetComponent<PipeRotater>();
+            var gate = d.pipeGates;
+            if (gate[0] == '1')
+            {
+                directionsBack.Add(Vector3Int.up);
+            }
+            if (gate[1] == '1')
+            {
+                directionsBack.Add(Vector3Int.right);
+            }
+            if (gate[2] == '1')
+            {
+                directionsBack.Add(Vector3Int.down);
+            }
+            if (gate[3] == '1')
+            {
+                directionsBack.Add(Vector3Int.left);
+            }
+        }
+
 
         return directionsBack;
 

@@ -12,18 +12,19 @@ public class PipeRotater : MonoBehaviour
     public float RotateSpeed = 600f;
     private Quaternion currentRotation;
     private Quaternion targetRotation;
+    //Pipe Directions
     public string pipeGates;
     public string strDirection;
 
-    //Pipe Directions
+    
     [SerializeField] GameObject pipePrefab;
-    Vector3Int[] directions =
-{
-        Vector3Int.up,
-        Vector3Int.right,
-        Vector3Int.down,
-        Vector3Int.left
-    };
+//    Vector3Int[] directions =
+//{
+//        Vector3Int.up,
+//        Vector3Int.right,
+//        Vector3Int.down,
+//        Vector3Int.left
+//    };
 
     void Start()
     {
