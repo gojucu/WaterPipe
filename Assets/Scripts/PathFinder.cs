@@ -89,29 +89,34 @@ public class PathFinder : MonoBehaviour
         foreach (Vector3 direction in directions)//ilk foreach searchCenter yani keşfeden waypointe ait yönler
         {
             Vector3 neighbourCoordinates = searchCenter.GetGridPos() + direction;
-            
-            var waypoints = FindObjectsOfType<Waypoint>();
-            foreach(var wap in waypoints) //neighbour un waypointini bulmakiçin
+
+            FindExploredFrom(neighbourCoordinates);
+
+        }
+    }
+
+    private void FindExploredFrom(Vector3 neighbourCoordinates)
+    {
+        var waypoints = FindObjectsOfType<Waypoint>();
+        foreach (var wap in waypoints) //neighbour un waypointini bulmakiçin
+        {
+            if (neighbourCoordinates == wap.transform.position && !wap.isExplored) // searchCenterın keşfettiği pipe kendisini görüyormu kontrol etmek için burdan gidiliyor
             {
-                if (neighbourCoordinates == wap.transform.position && !wap.isExplored) // searchCenterın keşfettiği pipe kendisini görüyormu kontrol etmek için burdan gidiliyor
+                backSearch = wap;
+                List<Vector3Int> directionsBack = FindPipeDirectionsBackwards();
+                foreach (Vector3 backDirection in directionsBack)//yeni keşfedilen pipe ın yönleri
                 {
-                    backSearch = wap;
-                    List<Vector3Int> directionsBack = FindPipeDirectionsBackwards();
-                    foreach (Vector3 backDirection in directionsBack)//yeni keşfedilen pipe ın yönleri
+                    Vector3 exploredFromCoordinates = backSearch.GetGridPos() + backDirection;
+                    if (exploredFromCoordinates == searchCenter.GetGridPos())//searchCenter ın gridini, yeni keşfedilen waypoint görüyor mu (Borunun yönleri doğrumu ?)
                     {
-                        Vector3 exploredFromCoordinates = backSearch.GetGridPos() + backDirection;
-                        if (exploredFromCoordinates == searchCenter.GetGridPos())//searchCenter ın gridini, yeni keşfedilen waypoint görüyor mu (Borunun yönleri doğrumu ?)
+                        if (grid.ContainsKey(neighbourCoordinates))
                         {
-                            if (grid.ContainsKey(neighbourCoordinates))
-                            {
-                                QueueNewNeighbours(neighbourCoordinates);
-                            }
-                            Debug.Log("Arkayı Görüyor.");
+                            QueueNewNeighbours(neighbourCoordinates);
                         }
+                        //Debug.Log("Arkayı Görüyor.");
                     }
                 }
             }
-            
         }
     }
 

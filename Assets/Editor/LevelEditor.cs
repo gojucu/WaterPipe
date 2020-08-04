@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
 public class LevelEditor : EditorWindow
 {
 
@@ -32,14 +33,7 @@ public class LevelEditor : EditorWindow
         {
             RotateSelected();
         }
-        //if (GUILayout.Button("New Scene"))
-        //{
 
-        //    //int sceneCount = SceneManager.sceneCountInBuildSettings + 1;
-        //    //FileUtil.CopyFileOrDirectory("Assets/Scenes/SampleScene.unity", "Assets/Scenes/Chapter"+sceneCount+".unity");
-        //    //AssetDatabase.Refresh();
-
-        //}
     }
 
     private static void RotateSelected()
@@ -73,3 +67,4 @@ public class LevelEditor : EditorWindow
         pipeRotater.strDirection = directions[index];
     }
 }
+#endif
