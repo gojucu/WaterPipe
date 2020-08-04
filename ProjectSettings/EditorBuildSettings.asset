@@ -6,9 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Menu.unity
+    guid: 4a340742d64f16841bc487a8b5929aa0
+  - enabled: 1
+    path: Assets/Scenes/Chapter1.unity
+    guid: 1c203cc099255a542b98f509ee36da83
+  - enabled: 1
+    path: Assets/Scenes/Chapter2.unity
+    guid: dc504171c801925468cde2ff7fcd01f0
+  - enabled: 1
+    path: Assets/Scenes/Chapter3.unity
+    guid: 76461c25e93460b488a11104cef97596
+  - enabled: 1
+    path: Assets/Scenes/Chapter4.unity
+    guid: da55ed68f3d31754498e467edea9f005
+  - enabled: 1
+    path: Assets/Scenes/Chapter5.unity
+    guid: 631954a6514adca46ae56a8b54043adb
+  - enabled: 1
+    path: Assets/Scenes/Chapter6.unity
+    guid: 1c304bdb50397404a843324c0ae3c15c
+  - enabled: 1
+    path: Assets/Scenes/Chapter7.unity
+    guid: fcff95df54f46ad4087360a01c27b77a
+  - enabled: 1
+    path: Assets/Scenes/Chapter8.unity
+    guid: 3dfd79c8fbab75448bf646bbf4d0a561
   - enabled: 1
     path: Assets/Scenes/Chapter9.unity
     guid: 6d4a8cc8b2b34c940b5ac421ad83d2b3
+  - enabled: 1
+    path: Assets/Scenes/Chapter10.unity
+    guid: c8abf1bcfae36f148a73ebeada984020
   m_configObjects: {}

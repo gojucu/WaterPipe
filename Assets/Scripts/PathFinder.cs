@@ -18,18 +18,7 @@ public class PathFinder : MonoBehaviour
     public List<Vector3Int> directions = new List<Vector3Int>();
     public List<Vector3Int> directionsBack = new List<Vector3Int>();
 
-    //Vector3Int[] directions =
-    //{
-    //    Vector3Int.up,
-    //    Vector3Int.right,
-    //    Vector3Int.down,
-    //    Vector3Int.left
-    //};
-    //void Start()
-    //{
-    //    GetPath();
 
-    //}
     public List<Waypoint> GetPath()
     {
 
@@ -60,7 +49,7 @@ public class PathFinder : MonoBehaviour
             var gridPos = waypoint.GetGridPos();
             if (grid.ContainsKey(gridPos))
             {
-                Debug.LogWarning("Overlapping block" + waypoint);
+                Debug.LogWarning("Overlapping pipe" + waypoint);
             }
             else
             {
@@ -92,10 +81,10 @@ public class PathFinder : MonoBehaviour
             directions.Add(Vector3Int.down);
             directions.Add(Vector3Int.left);
         }
-        foreach(var dir in directions)
-        {
-            Debug.Log(dir+searchCenter.name);
-        }
+        //foreach(var dir in directions)
+        //{
+        //    Debug.Log(dir+searchCenter.name);
+        //}
 
         foreach (Vector3 direction in directions)//ilk foreach searchCenter yani keşfeden waypointe ait yönler
         {
@@ -241,10 +230,6 @@ public class PathFinder : MonoBehaviour
             isEndReached = true;
             isRunning = false;
         }
-        //if ("hasWater" == "hasWater")
-        //{
-        //    Debug.Log("Water reached its goal");
-        //    //pipeRotater.hasWater = true;
-        //}
+
     }
 }

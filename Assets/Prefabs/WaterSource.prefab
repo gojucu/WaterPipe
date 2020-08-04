@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: 600
+  EndPanel: {fileID: 4207597704204916217, guid: 1b1e9e8f02886ef498c9cbb38f543162, type: 3}
 --- !u!114 &5777275373634838254
 MonoBehaviour:
   m_ObjectHideFlags: 0

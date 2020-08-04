@@ -18,13 +18,7 @@ public class PipeRotater : MonoBehaviour
 
     
     [SerializeField] GameObject pipePrefab;
-//    Vector3Int[] directions =
-//{
-//        Vector3Int.up,
-//        Vector3Int.right,
-//        Vector3Int.down,
-//        Vector3Int.left
-//    };
+
 
     void Start()
     {
@@ -80,7 +74,8 @@ public class PipeRotater : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (currentRotation == targetRotation)
+        PathFinder pathfinder = FindObjectOfType<PathFinder>();
+        if (currentRotation == targetRotation&& !pathfinder.isEndReached)
         {
             targetRotation *= Quaternion.Euler(0.0f, 0.0f, -90.0f);
 
@@ -95,11 +90,6 @@ public class PipeRotater : MonoBehaviour
 
     void Update()
     {
-        //Buna artık gerek yok heralde direk yoldan kontrol ediliyor
-        //if (hasWater)
-        //{
-        //    Debug.Log(gameObject.name + "has water");
-        //}
 
         currentRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotateSpeed * Time.deltaTime);
 

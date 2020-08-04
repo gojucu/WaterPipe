@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterSource : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WaterSource : MonoBehaviour
     public float RotateSpeed = 600f;
     private Quaternion currentRotation;
     private Quaternion targetRotation;
+    //Next level panel
+    public GameObject EndPanel;
 
     void OnMouseDown()
     {
@@ -21,6 +24,8 @@ public class WaterSource : MonoBehaviour
         if (pathfinder.isEndReached)
         {
             SpinValve();
+            EndPanel.SetActive(true);
+            Debug.Log(SceneManager.GetActiveScene().name);
             Debug.Log("son bulundu");
         }
         else
@@ -36,6 +41,7 @@ public class WaterSource : MonoBehaviour
         currentRotation = valve.rotation;
         targetRotation = valve.rotation;
 
+        EndPanel.SetActive(false);//panel başta gözükmüyor
     }
     private void SpinValve()
     {
